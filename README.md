@@ -1,2 +1,2 @@
-# lms-2
-This is a Remake of ims-1 with MERN Stack
+# LMS-2
+This is a Remake of LMS-1 with MERN Stack
