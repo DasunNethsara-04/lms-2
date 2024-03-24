@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import loginPanelImg from "../assets/img1.webp";
-import '../assets/css/styles.css'
+import "../assets/css/styles.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -14,8 +14,8 @@ function Login() {
 
   return (
     <div>
-      {/* "border-radius: 1rem 0 0 1rem;" */}
-      <div className="container py-5 h-100">
+      {/* "border-radius: 1rem 0 0 1rem;" class="vh-100" */}
+      <div className="container py-5 h-100 vh-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col col-xl-10">
             <div className="card" style={{ borderRadius: "1rem" }}>
@@ -80,7 +80,9 @@ function Login() {
                             <option value="teacher">Teacher</option>
                             <option value="student">Student</option>
                           </select>
-                          <label for="floatingSelect">Select User Role</label>
+                          <label htmlFor="floatingSelect">
+                            Select User Role
+                          </label>
                         </div>
                       </div>
 
