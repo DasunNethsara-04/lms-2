@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import loginPanelImg from "../assets/img1.webp";
+import '../assets/css/styles.css'
 
 function Login() {
   const [email, setEmail] = useState("");
