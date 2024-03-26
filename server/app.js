@@ -42,7 +42,7 @@ app.post("/register", (req, res) => {
                   Controller.getCurrentDate()
                     .then((formattedDate) => {
                       const sql =
-                        "INSERT INTO teacher_tbl (title, first_name, last_name, email, password, date_added, status) VALUES (?,?,?,?,?,?,?)";
+                        "INSERT INTO student_tbl (title, first_name, last_name, email, password, date_added, status) VALUES (?,?,?,?,?,?,?)";
                       Connection.query(
                         sql,
                         [
