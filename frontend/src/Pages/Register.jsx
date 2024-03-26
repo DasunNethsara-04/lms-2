@@ -9,10 +9,12 @@ function Register() {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [salutation, setSalutation] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData();
+    formData.append("salutation", salutation);
     formData.append("firstName", firstName);
     formData.append("lastName", lastName);
     formData.append("email", email);
@@ -26,13 +28,29 @@ function Register() {
       .then((res) => {
         if (res.status === 200) {
           console.log("OK");
-          // Add your code here to redirect to the login page after successful registration
-        } else {
-          console.log("Error!", res.status);
+          Swal.fire({
+            title: "Done",
+            text: res.data,
+            icon: "success",
+          });
         }
       })
       .catch((error) => {
-        console.log("Error!", error);
+        if (err.response) {
+          if (err.response.status === 400) {
+            Swal.fire({
+              title: "Oh no..",
+              text: err.response.data,
+              icon: "warning",
+            });
+          } else if (err.response.status === 500) {
+            Swal.fire({
+              title: "Oops.",
+              text: err.response.data,
+              icon: "error",
+            });
+          }
+        }
       });
   };
 
@@ -64,6 +82,28 @@ function Register() {
                       </h4>
 
                       <div className="row mb-4">
+                        <div className="col">
+                          <div className="form-outline mb-4">
+                            <div className="form-floating mb-3">
+                              <select
+                                className="form-select"
+                                id="floatingSelect"
+                                aria-label="Floating label select example"
+                                name="salutation"
+                                defaultValue={"Dr."}
+                                onChange={(e) => setSalutation(e.target.value)}
+                              >
+                                <option value="Dr.">Dr.</option>
+                                <option value="Mr.">Mr.</option>
+                                <option value="Mrs.">Mrs.</option>
+                                <option value="Miss.">Miss.</option>
+                              </select>
+                              <label htmlFor="floatingSelect">
+                                Select User Role
+                              </label>
+                            </div>
+                          </div>
+                        </div>
                         <div className="col">
                           <div className="form-outline mb-4">
                             <div className="form-floating mb-3">
@@ -113,9 +153,9 @@ function Register() {
                             className="form-control"
                             id="floatingInput4"
                             name="password"
-                            onChange={(e) => setEmail(e.target.value)}
+                            onChange={(e) => setPassword(e.target.value)}
                           />
-                          <label htmlFor="floatingInput4">Email address</label>
+                          <label htmlFor="floatingInput4">Password</label>
                         </div>
                       </div>
                       <div className="pt-1 mb-4">
