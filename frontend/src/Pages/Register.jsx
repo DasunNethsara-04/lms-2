@@ -4,6 +4,9 @@ import RegisterPanelImage from "../assets/img2.webp";
 import "../assets/css/styles.css";
 import { useState } from "react";
 
+import FloatingLabel from "react-bootstrap/FloatingLabel";
+import Form from "react-bootstrap/Form";
+
 function Register() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -85,77 +88,99 @@ function Register() {
                         <div className="col">
                           <div className="form-outline mb-4">
                             <div className="form-floating mb-3">
-                              <select
-                                className="form-select"
-                                id="floatingSelect"
-                                aria-label="Floating label select example"
-                                name="salutation"
-                                defaultValue={"Dr."}
-                                onChange={(e) => setSalutation(e.target.value)}
+                              <FloatingLabel
+                                controlId="floatingSelect"
+                                label="Salutation"
+                                onChange={(e) => {
+                                  setSalutation(e.target.value);
+                                }}
                               >
-                                <option value="Dr.">Dr.</option>
-                                <option value="Mr.">Mr.</option>
-                                <option value="Mrs.">Mrs.</option>
-                                <option value="Miss.">Miss.</option>
-                              </select>
-                              <label htmlFor="floatingSelect">
-                                Select User Role
-                              </label>
+                                <Form.Select aria-label="Salutation">
+                                  <option value="Dr.">Dr.</option>
+                                  <option value="Mr.">Mr.</option>
+                                  <option value="Mrs.">Mrs.</option>
+                                  <option value="Miss.">Miss.</option>
+                                </Form.Select>
+                              </FloatingLabel>
                             </div>
                           </div>
                         </div>
                         <div className="col">
                           <div className="form-outline mb-4">
                             <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="floatingInput1"
-                                name="firstName"
-                                onChange={(e) => setFirstName(e.target.value)}
-                              />
-                              <label htmlFor="floatingInput1">First Name</label>
+                              <FloatingLabel
+                                controlId="floatingInput1"
+                                label="First Name"
+                                className="mb-3"
+                              >
+                                <Form.Control
+                                  type="text"
+                                  required
+                                  name="firstName"
+                                  onChange={(e) => {
+                                    setFirstName(e.target.value);
+                                  }}
+                                />
+                              </FloatingLabel>
                             </div>
                           </div>
                         </div>
                         <div className="col">
                           <div className="form-outline mb-4">
                             <div className="form-floating mb-3">
-                              <input
-                                type="text"
-                                className="form-control"
-                                id="floatingInput2"
-                                name="lastName"
-                                onChange={(e) => setLastName(e.target.value)}
-                              />
-                              <label htmlFor="floatingInput2">Last Name</label>
+                              <FloatingLabel
+                                controlId="floatingInput2"
+                                label="Last Name"
+                                className="mb-3"
+                              >
+                                <Form.Control
+                                  type="text"
+                                  required
+                                  name="lastName"
+                                  onChange={(e) => {
+                                    setLastName(e.target.value);
+                                  }}
+                                />
+                              </FloatingLabel>
                             </div>
                           </div>
                         </div>
                       </div>
                       <div className="form-outline mb-4">
                         <div className="form-floating mb-3">
-                          <input
-                            type="email"
-                            className="form-control"
-                            id="floatingInput3"
-                            name="email"
-                            onChange={(e) => setEmail(e.target.value)}
-                          />
-                          <label htmlFor="floatingInput3">Email address</label>
+                          <FloatingLabel
+                            controlId="floatingInput3"
+                            label="Email Address"
+                            className="mb-3"
+                          >
+                            <Form.Control
+                              type="email"
+                              required
+                              name="email"
+                              onChange={(e) => {
+                                setEmail(e.target.value);
+                              }}
+                            />
+                          </FloatingLabel>
                         </div>
                       </div>
 
                       <div className="form-outline mb-4">
                         <div className="form-floating mb-3">
-                          <input
-                            type="password"
-                            className="form-control"
-                            id="floatingInput4"
-                            name="password"
-                            onChange={(e) => setPassword(e.target.value)}
-                          />
-                          <label htmlFor="floatingInput4">Password</label>
+                          <FloatingLabel
+                            controlId="floatingInput4"
+                            label="Password"
+                            className="mb-3"
+                          >
+                            <Form.Control
+                              type="password"
+                              required
+                              name="lastName"
+                              onChange={(e) => {
+                                setPassword(e.target.value);
+                              }}
+                            />
+                          </FloatingLabel>
                         </div>
                       </div>
                       <div className="pt-1 mb-4">
